@@ -1,0 +1,36 @@
+<h2>Get Top Headlines</h2>
+<form [formGroup]="form" (ngSubmit)="findNews()">
+    <table>
+        <tr>
+            <td>Country: </td>
+            <td>
+            <select formControlName="country"
+						(change)="onCountryChange($event)">
+					<option *ngFor="let c of countries" value={{c.code}}>
+						{{ c.name }}
+					</option>
+				</select>
+			</td>
+			<td>
+				<img [src]="flag" width="40">
+			</td>
+        </tr>
+        <tr>
+            <td>
+                Category: 
+            </td>
+            <td>
+                <select formControlName="category">
+                    <option>Select a category</option>
+                    <option *ngFor="let i of CATEGORIES" value={{i}}>{{i|titlecase}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" [disabled]="form.invalid">Go!</button>
+            </td>
+        </tr>
+    </table>
+</form>

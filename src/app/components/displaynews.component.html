@@ -1,0 +1,25 @@
+<h2>YOUR TOP HEADLINES FOR {{query.country}} UNDER {{query.category}} CATEGORY</h2>
+<table *ngFor="let n of news">
+    <tr>
+        <td>Title: </td>
+        <td>{{n.title}}</td>
+    </tr>
+    <tr>
+        <td>Author: </td>
+        <td>{{n.author}}</td>
+    </tr>
+    <tr>
+        <td>Description: </td>
+        <td>{{n.description}}</td>
+    </tr>
+    <tr>
+        <td>Published at: </td>
+        <td>{{n.publishedAt}}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td *ngIf="n.urlToImage; else noImg"><img src="{{n.urlToImage}}" width="20%"></td>
+    </tr>
+    <tr></tr>
+</table>
+<ng-template #noImg><img src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/04/crying_toddler-1296x728-header.jpg?w=1155&h=1528" width="20%"></ng-template>
